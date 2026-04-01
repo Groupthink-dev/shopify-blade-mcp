@@ -1,0 +1,83 @@
+name: shopify-blade-mcp
+version: "0.1.0"
+description: "Shopify Admin API operations via GraphQL — products, orders, customers, inventory, collections, fulfillment, discounts, metafields, webhooks, analytics"
+author: piersdd
+licence: MIT
+tier: certified
+homepage: https://github.com/groupthink-dev/shopify-blade-mcp
+contract: ecommerce-v1
+
+services:
+  ecommerce:
+    shop_info: shopify_shop
+    products: shopify_products
+    product: shopify_product
+    search_products: shopify_products  # via query param
+    orders: shopify_orders
+    order: shopify_order
+    search_orders: shopify_search_orders
+    customers: shopify_customers
+    customer: shopify_customer
+    search_customers: shopify_search_customers
+    inventory: shopify_inventory
+    locations: shopify_locations
+    collections: shopify_collections
+    collection: shopify_collection
+    fulfillments: shopify_order_fulfillments
+    discounts: shopify_discounts
+    metafields: shopify_metafields
+    webhooks: shopify_webhooks
+    analytics: shopify_analytics
+    create_product: shopify_create_product
+    update_product: shopify_update_product
+    delete_product: shopify_delete_product
+    update_order: shopify_update_order_note
+    cancel_order: shopify_cancel_order
+    close_order: shopify_close_order
+    create_customer: shopify_create_customer
+    update_customer: shopify_update_customer
+    adjust_inventory: shopify_adjust_inventory
+    set_inventory: shopify_set_inventory
+    create_collection: shopify_create_collection
+    collection_products: shopify_collection_add_products
+    create_fulfillment: shopify_create_fulfillment
+    update_tracking: shopify_update_tracking
+    create_discount: shopify_create_discount
+    delete_discount: shopify_delete_discount
+    set_metafield: shopify_set_metafield
+    delete_metafield: shopify_delete_metafield
+    create_webhook: shopify_create_webhook
+    delete_webhook: shopify_delete_webhook
+    verify_webhook: shopify_verify_webhook
+
+install:
+  runtime: uv
+  package: shopify-blade-mcp
+  command: shopify-blade-mcp
+
+env:
+  - name: SHOPIFY_STORE_DOMAIN
+    description: "Shopify store domain (e.g., my-store.myshopify.com)"
+    secret: false
+  - name: SHOPIFY_ACCESS_TOKEN
+    description: "Shopify Admin API access token (shpat_...)"
+    secret: true
+  - name: SHOPIFY_API_VERSION
+    description: "API version (default: 2025-04)"
+    default: "2025-04"
+  - name: SHOPIFY_WRITE_ENABLED
+    description: "Enable write operations (default: false)"
+    default: "false"
+  - name: SHOPIFY_WEBHOOK_SECRET
+    description: "Webhook signing secret for HMAC verification"
+    secret: true
+
+requires:
+  sidereal: ">=0.3.0"
+
+conformance:
+  required: "8/8"
+  recommended: "11/11"
+  optional: "7/7"
+  gated: "14/14"
+  last_tested: "2026-04-01"
