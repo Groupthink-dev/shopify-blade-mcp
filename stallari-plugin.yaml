@@ -1,5 +1,5 @@
 name: shopify-blade-mcp
-version: "0.1.0"
+version: "0.1.1"
 description: "Shopify Admin API operations via GraphQL — products, orders, customers, inventory, collections, fulfillment, discounts, metafields, webhooks, analytics"
 author: piersdd
 licence: MIT
